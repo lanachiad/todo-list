@@ -5,9 +5,9 @@ import './ToDoList.css';
 class ToDoList extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: '', todos: [] };
-    this.handleChange = this.handleChange.bind(this);
+    this.state = { todos: [], value: '' };
     this.createTask = this.createTask.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
@@ -16,17 +16,22 @@ class ToDoList extends Component {
 
   createTask(e) {
     e.preventDefault();
-    const task = { task: this.state.value };
+    const task = {
+      id: this.state.todos.length + 1,
+      task: this.state.value
+    };
     const todos = this.state.todos.concat([task]);
     this.setState({ todos });
     this.setState({ value: '' });
   }
 
+  deleteTask() {}
+
   render() {
     return (
       <div>
         <div className="list-wrapper">
-          {this.state.todos.map((todo, index) => <ToDo task={todo.task} key={index} id={index} />)}
+          {this.state.todos.map((todo, index) => <ToDo id={todo.id} key={index} task={todo.task} />)}
         </div>
         <form className="form" onSubmit={this.createTask}>
           <input

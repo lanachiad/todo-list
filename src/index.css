@@ -1,0 +1,20 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: url('https://www.cssauthor.com/wp-content/uploads/2014/06/Free-New-Material-Design-Backgrounds-1.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,30 @@
+.list-wrapper {
+  background-color: rgba(255, 255, 255, .75);
+  border: 2px #000 solid;
+  border-radius: 10px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.form {
+  bottom: 10px;
+  margin-top: 30px;
+}
+
+.input-field,
+.submit {
+  border: 1px #000 solid;
+  padding: 10px;
+}
+
+.input-field {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 200px;
+}
+
+.submit {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

@@ -8,6 +8,7 @@ class ToDoList extends Component {
     this.state = { todos: [], value: '' };
     this.createTask = this.createTask.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
   }
 
   handleChange(e) {
@@ -25,13 +26,19 @@ class ToDoList extends Component {
     this.setState({ value: '' });
   }
 
-  deleteTask() {}
+  deleteTask(e) {
+    // const todos = this.state.todos;
+    const test = e.currentTarget;
+    test.remove();
+  }
 
   render() {
     return (
       <div>
         <div className="list-wrapper">
-          {this.state.todos.map((todo, index) => <ToDo id={todo.id} key={index} task={todo.task} />)}
+          {this.state.todos.map((todo, index) =>
+            <ToDo status={this.deleteTask} id={todo.id} key={index} task={todo.task} />
+          )}
         </div>
         <form className="form" onSubmit={this.createTask}>
           <input

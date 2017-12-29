@@ -18,6 +18,11 @@
   padding: 10px;
 }
 
+.input-field:focus,
+.submit:focus {
+  outline: none;
+}
+
 .input-field {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;

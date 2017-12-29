@@ -5,9 +5,7 @@ class ToDo extends Component {
   render() {
     return (
       <div className="todo-wrapper" onClick={this.props.status.bind(this)}>
-        <span className="number">
-          {this.props.id}
-        </span>
+        <input className="number" type="checkbox" />
         <span>
           {this.props.task}
         </span>

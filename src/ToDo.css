@@ -10,9 +10,16 @@
 }
 
 .close {
+  background-color: transparent;
+  border: none;
   float: right;
+  font-size: 10pt;
 }
 
 .close:hover {
   cursor: pointer;
+}
+
+.close:focus {
+  outline: none;
 }

@@ -1,3 +1,12 @@
+Minimal to-do list application with current and future functionality:
+
+- [x] Create new tasks
+- [x] Delete tasks
+- [ ] Mark tasks as complete
+- [ ] Live numbering
+
+----
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

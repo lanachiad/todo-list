@@ -2,27 +2,18 @@ import React, { Component } from 'react';
 import './ToDo.css';
 
 class ToDo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { done: false };
-  }
-
-  handleDelete() {
-    this.setState({ done: true });
-  }
-
   render() {
     return (
-      <div className="todo-wrapper" doneness={this.state.done}>
+      <div className="todo-wrapper" onClick={this.props.status.bind(this)}>
         <span className="number">
           {this.props.id}
         </span>
         <span>
           {this.props.task}
         </span>
-        <span className="close" onClick={this.handleDelete}>
+        <button className="close" onClick={this.props.status}>
           x
-        </span>
+        </button>
       </div>
     );
   }

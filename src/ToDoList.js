@@ -27,7 +27,6 @@ class ToDoList extends Component {
   }
 
   deleteTask(e) {
-    // const todos = this.state.todos;
     const test = e.currentTarget;
     test.remove();
   }

@@ -7,17 +7,17 @@ class ToDo extends Component {
     this.state = {
       active: false
     };
-    this.addStrikeThrough = this.addStrikeThrough.bind(this);
+    this.handleActive = this.handleActive.bind(this);
   }
 
-  addStrikeThrough() {
+  handleActive() {
     this.setState({ active: true });
   }
 
   render() {
     return (
       <div className="todo-wrapper">
-        <input className="number" type="checkbox" onClick={this.addStrikeThrough} />
+        <input className="number" type="checkbox" onClick={this.handleActive} />
         <span>
           {this.props.task}
         </span>

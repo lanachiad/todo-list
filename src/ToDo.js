@@ -11,7 +11,8 @@ class ToDo extends Component {
   }
 
   handleActive() {
-    this.setState({ active: true });
+    const currentState = this.state.active;
+    this.setState({ active: !currentState });
   }
 
   render() {

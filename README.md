@@ -2,7 +2,7 @@ Minimal to-do list application with current and future functionality:
 
 - [x] Create new tasks
 - [x] Delete tasks
-- [ ] Mark tasks as complete
+- [x] Mark tasks as complete
 - [ ] Live numbering
 
 ----

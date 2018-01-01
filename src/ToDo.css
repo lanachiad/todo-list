@@ -23,3 +23,7 @@
 .close:focus {
   outline: none;
 }
+
+.complete {
+  text-decoration: line-through;
+}

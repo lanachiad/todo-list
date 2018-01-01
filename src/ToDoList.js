@@ -27,8 +27,7 @@ class ToDoList extends Component {
   }
 
   deleteTask(e) {
-    const task = e.currentTarget;
-    console.log({ task });
+    const task = e.currentTarget.parentNode;
     task.remove();
   }
 

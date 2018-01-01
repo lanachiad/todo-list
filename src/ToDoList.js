@@ -27,8 +27,9 @@ class ToDoList extends Component {
   }
 
   deleteTask(e) {
-    const test = e.currentTarget;
-    test.remove();
+    const task = e.currentTarget;
+    console.log({ task });
+    task.remove();
   }
 
   render() {
@@ -36,7 +37,7 @@ class ToDoList extends Component {
       <div>
         <div className="list-wrapper">
           {this.state.todos.map((todo, index) =>
-            <ToDo status={this.deleteTask} id={todo.id} key={index} task={todo.task} />
+            <ToDo delete={this.deleteTask} id={todo.id} key={index} task={todo.task} />
           )}
         </div>
         <form className="form" onSubmit={this.createTask}>

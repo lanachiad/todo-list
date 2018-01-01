@@ -7,18 +7,18 @@ class ToDo extends Component {
     this.state = {
       active: false
     };
-    this.handleActive = this.handleActive.bind(this);
+    this.handleActiveState = this.handleActiveState.bind(this);
   }
 
-  handleActive() {
+  handleActiveState() {
     const currentState = this.state.active;
     this.setState({ active: !currentState });
   }
 
   render() {
     return (
-      <div className="todo-wrapper">
-        <input className="number" type="checkbox" onClick={this.handleActive} />
+      <div className={this.state.active ? 'complete todo-wrapper' : 'todo-wrapper'}>
+        <input className="number" type="checkbox" onClick={this.handleActiveState} />
         <span>
           {this.props.task}
         </span>

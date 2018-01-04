@@ -18,10 +18,10 @@ class ToDo extends Component {
   render() {
     return (
       <div className={this.state.active ? 'complete todo-wrapper' : 'todo-wrapper'}>
-        <input className="number" type="checkbox" onClick={this.handleActiveState} />
-        <span className="task">
+        <input className="check" type="checkbox" onClick={this.handleActiveState} />
+        <p className="task">
           {this.props.task}
-        </span>
+        </p>
         <button className="close" onClick={this.props.delete}>
           x
         </button>

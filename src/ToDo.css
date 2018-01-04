@@ -3,7 +3,12 @@
   text-align: left;
 }
 
-.number {
+.task {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.check {
   color: gray;
   cursor: default;
   margin-right: 20px;

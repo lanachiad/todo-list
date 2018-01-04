@@ -9,6 +9,7 @@ class ToDoList extends Component {
     this.createTask = this.createTask.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
+    this.editTask = this.editTask.bind(this);
   }
 
   handleChange(e) {
@@ -31,12 +32,16 @@ class ToDoList extends Component {
     task.remove();
   }
 
+  editTask(e) {
+    console.log('edit this bitch');
+  }
+
   render() {
     return (
       <div>
         <div className="list-wrapper">
           {this.state.todos.map((todo, index) =>
-            <ToDo delete={this.deleteTask} id={todo.id} key={index} task={todo.task} />
+            <ToDo delete={this.deleteTask} edit={this.editTask} id={todo.id} key={index} task={todo.task} />
           )}
         </div>
         <form className="form" onSubmit={this.createTask}>

@@ -6,17 +6,13 @@ class ToDoList extends Component {
   constructor(props) {
     super(props);
     this.state = { todos: [], value: '' };
-    this.createTask = this.createTask.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.deleteTask = this.deleteTask.bind(this);
-    this.editTask = this.editTask.bind(this);
   }
 
-  handleChange(e) {
+  handleChange = e => {
     this.setState({ value: e.target.value });
-  }
+  };
 
-  createTask(e) {
+  createTask = e => {
     e.preventDefault();
     const task = {
       id: this.state.todos.length + 1,
@@ -25,17 +21,17 @@ class ToDoList extends Component {
     const todos = this.state.todos.concat([task]);
     this.setState({ todos });
     this.setState({ value: '' });
-  }
+  };
 
-  deleteTask(e) {
+  deleteTask = e => {
     const task = e.currentTarget.parentNode;
     task.remove();
-  }
+  };
 
-  editTask(e) {
+  editTask = e => {
     const task = e.currentTarget.parentNode.childNodes[1].innerText;
     console.log({ task });
-  }
+  };
 
   render() {
     return (

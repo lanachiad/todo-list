@@ -32,6 +32,6 @@
   outline: none;
 }
 
-.complete {
+.complete p {
   text-decoration: line-through;
 }

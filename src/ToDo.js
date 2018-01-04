@@ -26,7 +26,7 @@ class ToDo extends Component {
           x
         </button>
         <button className="edit" onClick={this.props.edit}>
-          e
+          &#9998;
         </button>
       </div>
     );

@@ -20,7 +20,7 @@ class ToDo extends Component {
     this.setState({ completed: !currentState });
   };
 
-  handleEditClick = () => {
+  handleEditableState = () => {
     const currentState = this.state.editable;
     this.setState({ editable: !currentState });
   };
@@ -38,7 +38,7 @@ class ToDo extends Component {
         <button className="close" onClick={this.props.delete}>
           x
         </button>
-        <button className="edit" onClick={this.handleEditClick}>
+        <button className="edit" onClick={this.handleEditableState}>
           &#9998;
         </button>
       </div>

@@ -33,7 +33,7 @@ class ToDoList extends Component {
   }
 
   editTask(e) {
-    const task = e.currentTarget.parentNode.childNodes[1];
+    const task = e.currentTarget.parentNode.childNodes[1].innerText;
     console.log({ task });
   }
 

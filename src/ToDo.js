@@ -5,27 +5,40 @@ class ToDo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: false
+      completed: false,
+      editable: false,
+      value: this.props.task
     };
-    this.handleActiveState = this.handleActiveState.bind(this);
   }
 
-  handleActiveState() {
-    const currentState = this.state.active;
-    this.setState({ active: !currentState });
-  }
+  handleChange = e => {
+    this.setState({ value: e.target.value });
+  };
+
+  handleCompletedState = () => {
+    const currentState = this.state.completed;
+    this.setState({ completed: !currentState });
+  };
+
+  handleEditClick = () => {
+    const currentState = this.state.editable;
+    this.setState({ editable: !currentState });
+  };
 
   render() {
-    return (
-      <div className={this.state.active ? 'complete todo-wrapper' : 'todo-wrapper'}>
-        <input className="check" type="checkbox" onClick={this.handleActiveState} />
-        <p className="task">
+    const input = this.state.editable
+      ? <input onChange={this.handleChange} value={this.state.value} />
+      : <p className="task">
           {this.props.task}
-        </p>
+        </p>;
+    return (
+      <div className={this.state.completed ? 'complete todo-wrapper' : 'todo-wrapper'}>
+        <input className="check" type="checkbox" onClick={this.handleCompletedState} />
+        {input}
         <button className="close" onClick={this.props.delete}>
           x
         </button>
-        <button className="edit" onClick={this.props.edit}>
+        <button className="edit" onClick={this.handleEditClick}>
           &#9998;
         </button>
       </div>

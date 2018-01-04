@@ -22,6 +22,7 @@ class ToDo extends Component {
         <span>
           {this.props.task}
         </span>
+        <button className="edit">e</button>
         <button className="close" onClick={this.props.delete}>
           x
         </button>

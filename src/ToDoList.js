@@ -29,8 +29,10 @@ class ToDoList extends Component {
   };
 
   editTask = e => {
-    const task = e.currentTarget.parentNode.childNodes[1].innerText;
-    console.log({ task });
+    const id = Number(e.target.parentElement.dataset.id);
+    const todos = this.state.todos;
+    const newText = e.target.parentElement.querySelector('.task').innerText;
+    const taskToUpdate = todos.find(todo => todo.id === id);
   };
 
   render() {

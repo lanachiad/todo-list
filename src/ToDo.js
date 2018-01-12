@@ -20,25 +20,30 @@ class ToDo extends Component {
     this.setState({ completed: !currentState });
   };
 
-  handleEditableState = () => {
+  handleEdit = e => {
+    this.toggleEditableState();
+    this.props.edit(e);
+  };
+
+  toggleEditableState = () => {
     const currentState = this.state.editable;
     this.setState({ editable: !currentState });
   };
 
   render() {
     const input = this.state.editable
-      ? <input onChange={this.handleChange} value={this.state.value} />
+      ? <input onBlur={this.toggleEditableState} onChange={this.handleChange} value={this.state.value} />
       : <p className="task">
           {this.props.task}
         </p>;
     return (
-      <div className={this.state.completed ? 'complete todo-wrapper' : 'todo-wrapper'}>
+      <div data-id={this.props.id} className={this.state.completed ? 'complete todo-wrapper' : 'todo-wrapper'}>
         <input className="check" type="checkbox" onClick={this.handleCompletedState} />
         {input}
         <button className="close" onClick={this.props.delete}>
           x
         </button>
-        <button className="edit" onClick={this.handleEditableState}>
+        <button className="edit" onClick={this.handleEdit}>
           &#9998;
         </button>
       </div>

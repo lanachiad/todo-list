@@ -30,12 +30,12 @@ class ToDo extends Component {
   };
 
   updateTaskOnSubmit = e => {
-    this.props.editSubmit(e);
+    this.props.edit(e, 'submit');
     this.handleEdit(e);
   };
 
   updateTaskOnBlur = e => {
-    this.props.editBlur(e);
+    this.props.edit(e, 'blur');
     this.handleEdit(e);
   };
 

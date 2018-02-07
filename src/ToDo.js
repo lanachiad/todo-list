@@ -31,16 +31,17 @@ class ToDo extends Component {
     this.setState({ editable: !currentState });
   };
 
-  // callEdit = () => {
-  //   this.props.edit();
-  // };
+  updateTask = e => {
+    this.props.edit(e);
+    this.handleEdit(e);
+  };
 
   render() {
     const input = this.state.editable
-      ? <form onSubmit={this.callEdit}>
+      ? <form onSubmit={this.updateTask}>
           <input
             className="updating-task"
-            onBlur={this.toggleEditableState}
+            onBlur={this.updateTask}
             onChange={this.handleChange}
             value={this.state.value}
           />

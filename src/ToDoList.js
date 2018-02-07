@@ -44,6 +44,7 @@ class ToDoList extends Component {
       }
     });
     this.setState({ todos: newTodos });
+    //change todo's editable state
   };
 
   changeEditable = state => {

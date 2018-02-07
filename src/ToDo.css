@@ -35,3 +35,7 @@
 .complete p {
   text-decoration: line-through;
 }
+
+.updating-task-form {
+  display: inline;
+}

@@ -20,12 +20,10 @@ class ToDo extends Component {
     this.setState({ completed: !currentState });
   };
 
-  // First
   handleEdit = e => {
     this.toggleEditableState();
   };
 
-  // Second
   toggleEditableState = () => {
     const currentState = this.state.editable;
     this.setState({ editable: !currentState });
@@ -43,7 +41,7 @@ class ToDo extends Component {
 
   render() {
     const input = this.state.editable
-      ? <form onSubmit={this.updateTaskOnSubmit}>
+      ? <form className="updating-task-form" onSubmit={this.updateTaskOnSubmit}>
           <input
             className="updating-task"
             onBlur={this.updateTaskOnBlur}

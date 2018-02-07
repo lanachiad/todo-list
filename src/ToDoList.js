@@ -28,11 +28,27 @@ class ToDoList extends Component {
     task.remove();
   };
 
+  // Enter
   editTask = e => {
+    e.preventDefault();
     const id = Number(e.target.parentElement.dataset.id);
     const todos = this.state.todos;
-    const newText = e.target.parentElement.querySelector('.task').innerText;
+    const newText = e.target.parentElement.querySelector('.updating-task').value;
     const taskToUpdate = todos.find(todo => todo.id === id);
+    const newTodos = todos.map(current => {
+      if (current.id === taskToUpdate.id) {
+        current.task = newText;
+        return current;
+      } else {
+        return current;
+      }
+    });
+    this.setState({ todos: newTodos });
+  };
+
+  changeEditable = state => {
+    state === true ? (state = false) : (state = true);
+    debugger;
   };
 
   render() {
@@ -40,7 +56,14 @@ class ToDoList extends Component {
       <div>
         <div className="list-wrapper">
           {this.state.todos.map((todo, index) =>
-            <ToDo delete={this.deleteTask} edit={this.editTask} id={todo.id} key={index} task={todo.task} />
+            <ToDo
+              delete={this.deleteTask}
+              edit={this.editTask}
+              change={this.changeEditable}
+              id={todo.id}
+              key={index}
+              task={todo.task}
+            />
           )}
         </div>
         <form className="form" onSubmit={this.createTask}>

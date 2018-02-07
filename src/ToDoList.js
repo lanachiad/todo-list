@@ -29,7 +29,7 @@ class ToDoList extends Component {
   };
 
   // Enter
-  editTask = e => {
+  editTaskSubmit = e => {
     e.preventDefault();
     const id = Number(e.target.parentElement.dataset.id);
     const todos = this.state.todos;
@@ -44,12 +44,23 @@ class ToDoList extends Component {
       }
     });
     this.setState({ todos: newTodos });
-    //change todo's editable state
   };
 
-  changeEditable = state => {
-    state === true ? (state = false) : (state = true);
-    debugger;
+  editTaskBlur = e => {
+    e.preventDefault();
+    const id = Number(e.target.parentElement.parentElement.dataset.id);
+    const todos = this.state.todos;
+    const newText = e.target.parentElement.querySelector('.updating-task').value;
+    const taskToUpdate = todos.find(todo => todo.id === id);
+    const newTodos = todos.map(current => {
+      if (current.id === taskToUpdate.id) {
+        current.task = newText;
+        return current;
+      } else {
+        return current;
+      }
+    });
+    this.setState({ todos: newTodos });
   };
 
   render() {
@@ -59,8 +70,8 @@ class ToDoList extends Component {
           {this.state.todos.map((todo, index) =>
             <ToDo
               delete={this.deleteTask}
-              edit={this.editTask}
-              change={this.changeEditable}
+              editSubmit={this.editTaskSubmit}
+              editBlur={this.editTaskBlur}
               id={todo.id}
               key={index}
               task={todo.task}

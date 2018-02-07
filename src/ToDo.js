@@ -20,25 +20,49 @@ class ToDo extends Component {
     this.setState({ completed: !currentState });
   };
 
-  handleEditableState = () => {
+  // First
+  handleEdit = e => {
+    this.toggleEditableState();
+  };
+
+  // Second
+  toggleEditableState = () => {
     const currentState = this.state.editable;
     this.setState({ editable: !currentState });
   };
 
+  updateTaskOnSubmit = e => {
+    this.props.editSubmit(e);
+    this.handleEdit(e);
+  };
+
+  updateTaskOnBlur = e => {
+    this.props.editBlur(e);
+    this.handleEdit(e);
+  };
+
   render() {
     const input = this.state.editable
-      ? <input onChange={this.handleChange} value={this.state.value} />
+      ? <form onSubmit={this.updateTaskOnSubmit}>
+          <input
+            className="updating-task"
+            onBlur={this.updateTaskOnBlur}
+            onChange={this.handleChange}
+            value={this.state.value}
+          />
+        </form>
       : <p className="task">
           {this.props.task}
         </p>;
+
     return (
-      <div className={this.state.completed ? 'complete todo-wrapper' : 'todo-wrapper'}>
+      <div data-id={this.props.id} className={this.state.completed ? 'complete todo-wrapper' : 'todo-wrapper'}>
         <input className="check" type="checkbox" onClick={this.handleCompletedState} />
         {input}
         <button className="close" onClick={this.props.delete}>
           x
         </button>
-        <button className="edit" onClick={this.handleEditableState}>
+        <button className="edit" onClick={this.handleEdit}>
           &#9998;
         </button>
       </div>
@@ -47,3 +71,5 @@ class ToDo extends Component {
 }
 
 export default ToDo;
+
+//? <form onSubmit={this.props.edit} onBlur={this.props.edit}>
